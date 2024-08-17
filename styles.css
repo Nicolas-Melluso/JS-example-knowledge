@@ -74,3 +74,10 @@ h1 {
     grid-template-columns: repeat(10, 1fr);
     width: 800px;
 }
+
+.score-board {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    font-size: 40px;
+}

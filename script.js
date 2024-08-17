@@ -4,6 +4,11 @@ let secondCard = null;
 let pairsFound = 0;
 let boardLocked = false;
 
+localStorage.setItem('level', 1);
+localStorage.setItem('fliped-cards', 0);
+localStorage.setItem('pair-cards', 0);
+localStorage.setItem('score', 0);
+
 newGame();
 
 async function newGame() {
@@ -55,8 +60,21 @@ function createBoard(cards) {
 function flipCard() {
   if (boardLocked || this === firstCard) return; 
   this.classList.add('flipped')
-  this.style.backgroundImage = `url(${this.dataset.textContent})`;
 
+  let flipedCards = localStorage.getItem('fliped-cards');
+  flipedCards = JSON.parse(flipedCards);
+  flipedCards++;
+  document.getElementById('fliped-cards').innerHTML = `Fliped cards ${flipedCards}`;
+  localStorage.setItem('fliped-cards', JSON.stringify(flipedCards));
+
+  let score = localStorage.getItem('score');
+  score = JSON.parse(score);
+  score-=10;
+  document.getElementById('score').innerHTML = `Score ${score}`;
+  localStorage.setItem('score', JSON.stringify(score));
+
+  this.style.backgroundImage = `url(${this.dataset.textContent})`;
+  
   if (!firstCard) {
     firstCard = this;
     return;
@@ -71,6 +89,20 @@ function checkForMatch() {
   let isMatch = firstCard.dataset.textContent === secondCard.dataset.textContent;
 
   if (isMatch) {
+
+    let pairCards = localStorage.getItem('pair-cards');
+    pairCards = JSON.parse(pairCards);
+    pairCards++;
+    document.getElementById('pair-cards').innerHTML = `Pair winned ${pairCards}`;
+    localStorage.setItem('pair-cards', JSON.stringify(pairCards));
+
+    let score = localStorage.getItem('score');
+    score = JSON.parse(score);
+    score+=40;
+    document.getElementById('score').innerHTML = `Score ${score}`;
+    localStorage.setItem('score', JSON.stringify(score));
+
+
     disableCards();
     pairsFound++;
 
@@ -78,6 +110,19 @@ function checkForMatch() {
       setTimeout(() => {
         if (gridSize < 10) {
             gridSize++;
+
+            let level = localStorage.getItem('level');
+            level = JSON.parse(level);
+            level++;
+            document.getElementById('level').innerHTML = `Level ${level}`;
+            localStorage.setItem('level', JSON.stringify(level));
+
+            let score = localStorage.getItem('score');
+            score = JSON.parse(score);
+            score+=(60 * level);
+            document.getElementById('score').innerHTML = `Score ${score}`;
+            localStorage.setItem('score', JSON.stringify(score));
+
             const gameBoard = document.getElementById('game-board');
             gameBoard.innerHTML = '';
             newGame();
