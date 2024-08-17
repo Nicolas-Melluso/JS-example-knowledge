@@ -129,6 +129,12 @@ function checkForMatch() {
         } else {
             const winner = document.getElementById('announce');
             winner.innerHTML = 'Congrats, you finished the game!';
+
+            localStorage.setItem('level', 1);
+            localStorage.setItem('fliped-cards', 0);
+            localStorage.setItem('pair-cards', 0);
+            localStorage.setItem('score', 0);
+
             resetGame();
         }
       }, 1000);
