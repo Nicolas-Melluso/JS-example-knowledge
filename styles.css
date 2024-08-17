@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.game-board {
+    margin: 20px auto;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.card.flipped {
+    background-color: #fff;
+    color: #333;
+    cursor: default;
+}
+
+.grid-3x3 {
+    grid-template-columns: repeat(3, 1fr);
+    width: 240px;
+}
+
+.grid-4x4 {
+    grid-template-columns: repeat(4, 1fr);
+    width: 320px;
+}
+
+.grid-5x5 {
+    grid-template-columns: repeat(5, 1fr);
+    width: 400px;
+}
+
+.grid-6x6 {
+    grid-template-columns: repeat(6, 1fr);
+    width: 480px;
+}
+
+.grid-7x7 {
+    grid-template-columns: repeat(7, 1fr);
+    width: 560px;
+}
+
+.grid-8x8 {
+    grid-template-columns: repeat(8, 1fr);
+    width: 640px;
+}
+
+.grid-9x9 {
+    grid-template-columns: repeat(9, 1fr);
+    width: 720px;
+}
+
+.grid-10x10 {
+    grid-template-columns: repeat(10, 1fr);
+    width: 800px;
+}
