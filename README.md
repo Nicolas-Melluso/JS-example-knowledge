@@ -1,6 +1,8 @@
 # JS-example-knowledge
 Memory Game
 
+https://nicolasmitre.github.io/JS-example-knowledge/
+
 A Fun and Engaging Single-Player Memory Challenge!
 This project is a single-player memory game built using HTML, CSS, and JavaScript (ES6). It challenges you to find hidden image pairs by flipping cards and reveals them upon clicking. Your objective is to match all pairs with the least number of flips.
 
